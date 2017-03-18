@@ -555,7 +555,7 @@
     <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot-master-detail-embed.component.ts" />
     <TypeScriptCompile Include="src\app\biometrics\index.ts" />
     <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot.model.ts" />
-    <TypeScriptCompile Include="src\app\biometrics\weight.actions.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\biometrics.actions.ts" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HealthTracker\HealthTracker.csproj">

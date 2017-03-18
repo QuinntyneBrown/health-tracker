@@ -4,4 +4,3 @@ export * from "./profile-item.component";
 export * from "./profile-list.component";
 export * from "./profile.model";
 export * from "./profile.service";
-export * from "./weight-snap-shot.model";

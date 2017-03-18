@@ -1,6 +1,6 @@
 import { WeightSnapShot } from "./weight-snap-shot.model";
 import { EditorComponent } from "../shared";
-import {  WeightSnapShotDelete, WeightSnapShotEdit, WeightSnapShotSave } from "./weight-snap-shot.actions";
+import { WeightSnapShotDelete, WeightSnapShotEdit, WeightSnapShotAdd } from "./biometrics.actions";
 
 const template = require("./weight-snap-shot-edit-embed.component.html");
 const styles = require("./weight-snap-shot-edit-embed.component.scss");
@@ -29,7 +29,7 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
         this._titleElement.textContent = this.weightSnapShot ? "Edit Weight Snap Shot": "Create Weight Snap Shot";
 
         if (this.weightSnapShot) {                
-            this._nameInputElement.value = this.weightSnapShot.name;  
+            this._poundsInputElement.value = this.weightSnapShot.pounds;  
         } else {
             this._deleteButtonElement.style.display = "none";
         }     
@@ -48,22 +48,22 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
     public onSave() {
         const weightSnapShot = {
             id: this.weightSnapShot != null ? this.weightSnapShot.id : null,
-            name: this._nameInputElement.value
+            pounds: this._poundsInputElement.value
         } as WeightSnapShot;
         
-        this.dispatchEvent(new WeightSnapShotSaveEvent(weightSnapShot));            
+        this.dispatchEvent(new WeightSnapShotAdd(weightSnapShot));            
     }
 
     public onDelete() {        
         const weightSnapShot = {
             id: this.weightSnapShot != null ? this.weightSnapShot.id : null,
-            name: this._nameInputElement.value
+            pounds: this._poundsInputElement.value
         } as WeightSnapShot;
 
-        this.dispatchEvent(new WeightSnapShotDeleteEvent(weightSnapShot));         
+        this.dispatchEvent(new WeightSnapShotDelete(weightSnapShot));         
     }
 
-    public weightSnapShot: WeightSnapShot;
+
 
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
@@ -74,19 +74,19 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
                 this.weightSnapShot = JSON.parse(newValue);
                 if (this.parentNode) {
                     this.weightSnapShotId = this.weightSnapShot.id;
-                    this._nameInputElement.value = this.weightSnapShot.name != undefined ? this.weightSnapShot.name : "";
+                    this._poundsInputElement.value = this.weightSnapShot.pounds != undefined ? this.weightSnapShot.pounds : "";
                     this._titleElement.textContent = this.weightSnapShotId ? "Edit WeightSnapShot" : "Create WeightSnapShot";
                 }
                 break;
         }           
     }
-
+    public weightSnapShotId: any;
     public weightSnapShot: WeightSnapShot;
     
     private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-name") as HTMLInputElement;}
+    private get _poundsInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-name") as HTMLInputElement;}
 }
 
 customElements.define(`ce-weight-snap-shot-edit-embed`,WeightSnapShotEditEmbedComponent);

@@ -29,7 +29,7 @@ export class WeightSnapShotItemEmbedComponent extends HTMLElement {
     }
 
     private _bind() {
-        this._nameElement.textContent = this.entity.name;
+        this._poundsElement.textContent = this.entity.pounds;
     }
 
     private _setEventListeners() {
@@ -58,7 +58,7 @@ export class WeightSnapShotItemEmbedComponent extends HTMLElement {
         }        
     }
 
-    private get _nameElement() { return this.querySelector("p") as HTMLElement; }
+    private get _poundsElement() { return this.querySelector("p") as HTMLElement; }
     private get _deleteLinkElement() { return this.querySelector(".entity-item-delete") as HTMLElement; }
     private get _editLinkElement() { return this.querySelector(".entity-item-edit") as HTMLElement; }
     private get _viewLinkElement() { return this.querySelector(".entity-item-view") as HTMLElement; }
