@@ -1,3 +1,4 @@
+export * from "./biometrics";
 export * from "./digital-assets";
 export * from "./pagination";
 export * from "./profiles";

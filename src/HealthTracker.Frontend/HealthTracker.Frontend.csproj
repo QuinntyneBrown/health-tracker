@@ -6,7 +6,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion></ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -21,7 +22,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -360,6 +362,30 @@
     <Content Include="src\app\users\users.component.scss">
       <DependentUpon>users.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-edit-embed.component.html">
+      <DependentUpon>weight-snap-shot-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-edit-embed.component.scss">
+      <DependentUpon>weight-snap-shot-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-item-embed.component.html">
+      <DependentUpon>weight-snap-shot-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-item-embed.component.scss">
+      <DependentUpon>weight-snap-shot-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-list-embed.component.html">
+      <DependentUpon>weight-snap-shot-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-list-embed.component.scss">
+      <DependentUpon>weight-snap-shot-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-master-detail-embed.component.html">
+      <DependentUpon>weight-snap-shot-master-detail-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\biometrics\weight-snap-shot-master-detail-embed.component.scss">
+      <DependentUpon>weight-snap-shot-master-detail-embed.component.ts</DependentUpon>
+    </Content>
     <Content Include="webpack.config.js" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -373,14 +399,6 @@
     <Content Include="src\styles\base\entity-list.scss" />
     <Content Include="src\styles\base\select.scss" />
     <Content Include="src\styles\base\view-card.scss" />
-    <Content Include="src\app\weight\weight-snap-shot-item-embed.component.scss" />
-    <Content Include="src\app\weight\weight-snap-shot-item-embed.component.html" />
-    <Content Include="src\app\weight\weight-snap-shot-list-embed.component.scss" />
-    <Content Include="src\app\weight\weight-snap-shot-list-embed.component.html" />
-    <Content Include="src\app\weight\weight-snap-shot-edit-embed.component.scss" />
-    <Content Include="src\app\weight\weight-snap-shot-edit-embed.component.html" />
-    <Content Include="src\app\weight\weight-snap-shot-master-detail-embed.component.scss" />
-    <Content Include="src\app\weight\weight-snap-shot-master-detail-embed.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -406,7 +424,8 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -530,14 +549,13 @@
     <TypeScriptCompile Include="src\app\profiles\profile.model.ts" />
     <TypeScriptCompile Include="src\app\profiles\profile.service.ts" />
     <TypeScriptCompile Include="src\app\profiles\my-profile.component.ts" />
-    <TypeScriptCompile Include="src\app\profiles\weight-snap-shot.model.ts" />
-    <TypeScriptCompile Include="src\app\weight\weight-snap-shot-item-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\weight\weight-snap-shot-list-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\weight\weight-snap-shot-edit-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\weight\weight-snap-shot-master-detail-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\weight\index.ts" />
-    <TypeScriptCompile Include="src\app\weight\weight-snap-shot.model.ts" />
-    <TypeScriptCompile Include="src\app\weight\actions.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot-master-detail-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\index.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\weight-snap-shot.model.ts" />
+    <TypeScriptCompile Include="src\app\biometrics\weight.actions.ts" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HealthTracker\HealthTracker.csproj">
@@ -549,8 +567,6 @@
     <None Include="Properties\PublishProfiles\propose-idea - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\propose-idea - Web Deploy.pubxml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\app\weight\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

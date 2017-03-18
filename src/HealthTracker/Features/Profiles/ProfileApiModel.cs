@@ -1,4 +1,5 @@
 using HealthTracker.Data.Model;
+using HealthTracker.Features.Biometrics;
 using System.Collections.Generic;
 using System.Linq;
 

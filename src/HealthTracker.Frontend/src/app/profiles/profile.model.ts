@@ -1,4 +1,4 @@
-import { WeightSnapShot } from "./weight-snap-shot.model";
+import { WeightSnapShot } from "../biometrics";
 
 export class Profile { 
     public id:any;

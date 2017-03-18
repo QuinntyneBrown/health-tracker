@@ -265,10 +265,9 @@
     <Compile Include="Features\Profiles\AccountApiModel.cs" />
     <Compile Include="Features\Profiles\AccountController.cs" />
     <Compile Include="Features\Profiles\GetMyProfileQuery.cs" />
-    <Compile Include="Features\Profiles\WeightSnapShotApiModel.cs" />
+    <Compile Include="Features\Biometrics\WeightSnapShotApiModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Profiles\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

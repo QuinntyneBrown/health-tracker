@@ -1,6 +1,6 @@
 using HealthTracker.Data.Model;
 
-namespace HealthTracker.Features.Profiles
+namespace HealthTracker.Features.Biometrics
 {
     public class WeightSnapShotApiModel
     {        
