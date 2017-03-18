@@ -1,0 +1,7 @@
+@import "../../styles/base/_all";
+
+ce-my-profile {
+    @extend .view-card;
+
+    display:block;
+}
