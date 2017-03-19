@@ -7,6 +7,7 @@ using static HealthTracker.Features.Profiles.AddOrUpdateProfileCommand;
 using static HealthTracker.Features.Profiles.GetProfilesQuery;
 using static HealthTracker.Features.Profiles.GetProfileByIdQuery;
 using static HealthTracker.Features.Profiles.RemoveProfileCommand;
+using static HealthTracker.Features.Profiles.GetMyProfileQuery;
 
 namespace HealthTracker.Features.Profiles
 {
@@ -46,6 +47,17 @@ namespace HealthTracker.Features.Profiles
         {
             var request = new GetProfilesRequest();
             request.TenantId = (await _userManager.GetUserAsync(User)).TenantId;
+            return Ok(await _mediator.Send(request));
+        }
+
+        [Route("getmyprofile")]
+        [AllowAnonymous]
+        [HttpGet]
+        [ResponseType(typeof(GetMyProfileResponse))]
+        public async Task<IHttpActionResult> GetMyProfile()
+        {
+            var request = new GetMyProfileRequest();
+            //request.TenantId = (await _userManager.GetUserAsync(User)).TenantId;
             return Ok(await _mediator.Send(request));
         }
 

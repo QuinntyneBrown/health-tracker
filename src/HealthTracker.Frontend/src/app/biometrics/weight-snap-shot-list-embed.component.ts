@@ -35,6 +35,8 @@ export class WeightSnapShotListEmbedComponent extends HTMLElement {
         switch (name) {
             case "weight-snap-shots":
                 this.weightSnapShots = JSON.parse(newValue);
+
+                if (this.parentNode) { this.connectedCallback(); }
                 break;
         }
     }

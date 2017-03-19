@@ -1,4 +1,5 @@
 import { WeightSnapShot } from "./weight-snap-shot.model";
+import { WeightSnapShotEdit, WeightSnapShotDelete } from "./biometrics.actions";
 
 const template = require("./weight-snap-shot-item-embed.component.html");
 const styles = require("./weight-snap-shot-item-embed.component.scss");
@@ -39,11 +40,11 @@ export class WeightSnapShotItemEmbedComponent extends HTMLElement {
     }
 
     private async _onDeleteClick(e:Event) {
-
+        this.dispatchEvent(new WeightSnapShotDelete(this.entity)); 
     }
 
     private _onEditClick() {
-
+        this.dispatchEvent(new WeightSnapShotEdit(this.entity));
     }
 
     private _onViewClick() {

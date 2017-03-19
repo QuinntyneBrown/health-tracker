@@ -27,9 +27,11 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
     
     private async _bind() {
         this._titleElement.textContent = this.weightSnapShot ? "Edit Weight Snap Shot": "Create Weight Snap Shot";
+        this.weighedOnDatePicker = rome(this._weighedOnInputElement, { time: false });
 
         if (this.weightSnapShot) {                
-            this._poundsInputElement.value = this.weightSnapShot.pounds;  
+            this._poundsInputElement.value = this.weightSnapShot.pounds; 
+            this._weighedOnInputElement.value = this.weightSnapShot.weighedOn; 
         } else {
             this._deleteButtonElement.style.display = "none";
         }     
@@ -49,7 +51,7 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
         const weightSnapShot = {
             id: this.weightSnapShot != null ? this.weightSnapShot.id : null,
             pounds: this._poundsInputElement.value,
-            weighedOn: this._weighedOnsInputElement.value
+            weighedOn: this._weighedOnInputElement.value
         } as WeightSnapShot;
         
         this.dispatchEvent(new WeightSnapShotAdd(weightSnapShot));            
@@ -59,24 +61,23 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
         const weightSnapShot = {
             id: this.weightSnapShot != null ? this.weightSnapShot.id : null,
             pounds: this._poundsInputElement.value,
-            weighedOn: this._weighedOnsInputElement.value
+            weighedOn: this._weighedOnInputElement.value
         } as WeightSnapShot;
 
         this.dispatchEvent(new WeightSnapShotDelete(weightSnapShot));         
     }
-
-
-
+    
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "weight-snap-shot-id":
                 this.weightSnapShotId = newValue;
                 break;
-            case "weightSnapShot":
+            case "weight-snap-shot":
                 this.weightSnapShot = JSON.parse(newValue);
                 if (this.parentNode) {
                     this.weightSnapShotId = this.weightSnapShot.id;
                     this._poundsInputElement.value = this.weightSnapShot.pounds != undefined ? this.weightSnapShot.pounds : "";
+                    this._weighedOnInputElement.value = this.weightSnapShot.weighedOn != undefined ? this.weightSnapShot.weighedOn : "";
                     this._titleElement.textContent = this.weightSnapShotId ? "Edit WeightSnapShot" : "Create WeightSnapShot";
                 }
                 break;
@@ -84,13 +85,14 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
     }
     public weightSnapShotId: any;
     public weightSnapShot: WeightSnapShot;
-    
+    public weighedOnDatePicker: any;
+
     private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
 
     private get _poundsInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-pounds") as HTMLInputElement; }
-    private get _weighedOnsInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-weighed-on") as HTMLInputElement; }
+    private get _weighedOnInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-weighed-on") as HTMLInputElement; }
 }
 
 customElements.define(`ce-weight-snap-shot-edit-embed`,WeightSnapShotEditEmbedComponent);

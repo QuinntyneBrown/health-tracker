@@ -7,10 +7,13 @@ namespace HealthTracker.Features.Profiles
 {
     public class GetMyProfileQuery
     {
-        public class GetMyProfileRequest : IRequest<GetMyProfileResponse> { }
+        public class GetMyProfileRequest : IRequest<GetMyProfileResponse> {
+            public int? TenantId { get; set; }
+            public int? ProfileId { get; set; }
+        }
 
         public class GetMyProfileResponse
-        {
+        {            
             public ProfileApiModel Profile { get; set; }
         }
 

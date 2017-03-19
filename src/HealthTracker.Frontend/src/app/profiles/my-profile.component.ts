@@ -7,6 +7,7 @@ const styles = require("./my-profile.component.scss");
 export class MyProfileComponent extends HTMLElement {
     constructor(private _profileService: ProfileService) {
         super();
+        this.onSave = this.onSave.bind(this);
     }
 
     static get observedAttributes () {
@@ -22,24 +23,22 @@ export class MyProfileComponent extends HTMLElement {
     }
 
     private async _bind() {
-        //this.myProfile = await this._profileService.getMyProfile();
-
+        this.myProfile = await this._profileService.getMyProfile();
+        this.masterDetailElement.setAttribute("weight-snap-shots", JSON.stringify(this.myProfile.weightSnapShots));
     }
 
     private _setEventListeners() {
-
+        this.saveButtonElement.addEventListener("click", this.onSave);
     }
 
-    disconnectedCallback() {
-
+    public async onSave() {        
+        this.myProfile.weightSnapShots = this.masterDetailElement.value as any;
+        await this._profileService.add(this.myProfile);
+        this._bind();
     }
-
-    attributeChangedCallback (name, oldValue, newValue) {
-        switch (name) {
-            default:
-                break;
-        }
-    }
+    
+    public get saveButtonElement(): HTMLElement { return this.querySelector("ce-button") as HTMLElement; }
+    public get masterDetailElement(): HTMLInputElement { return this.querySelector("ce-weight-snap-shot-master-detail-embed") as HTMLInputElement; }
 }
 
 customElements.define(`ce-my-profile`,MyProfileComponent);

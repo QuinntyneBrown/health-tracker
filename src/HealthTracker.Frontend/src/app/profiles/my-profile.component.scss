@@ -4,4 +4,8 @@ ce-my-profile {
     @extend .view-card;
 
     display:block;
+
+    ce-button {
+        padding:0px 20px;
+    }
 }
