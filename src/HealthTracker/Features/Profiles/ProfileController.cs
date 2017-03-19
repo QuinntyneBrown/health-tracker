@@ -11,7 +11,6 @@ using static HealthTracker.Features.Profiles.GetMyProfileQuery;
 
 namespace HealthTracker.Features.Profiles
 {
-    [Authorize]
     [RoutePrefix("api/profile")]
     public class ProfileController : ApiController
     {
@@ -21,12 +20,13 @@ namespace HealthTracker.Features.Profiles
             _userManager = userManager;
         }
 
+        [AllowAnonymous]
         [Route("add")]
         [HttpPost]
         [ResponseType(typeof(AddOrUpdateProfileResponse))]
         public async Task<IHttpActionResult> Add(AddOrUpdateProfileRequest request)
         {
-            request.TenantId = (await _userManager.GetUserAsync(User)).TenantId;
+            request.TenantId = 1;
             return Ok(await _mediator.Send(request));
         }
 

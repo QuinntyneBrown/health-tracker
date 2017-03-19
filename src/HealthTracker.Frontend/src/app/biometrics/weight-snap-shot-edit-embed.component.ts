@@ -78,7 +78,7 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
                     this.weightSnapShotId = this.weightSnapShot.id;
                     this._poundsInputElement.value = this.weightSnapShot.pounds != undefined ? this.weightSnapShot.pounds : "";
                     this._weighedOnInputElement.value = this.weightSnapShot.weighedOn != undefined ? this.weightSnapShot.weighedOn : "";
-                    this._titleElement.textContent = this.weightSnapShotId ? "Edit WeightSnapShot" : "Create WeightSnapShot";
+                    this._titleElement.textContent = this.weightSnapShotId ? "Edit Weight Snap Shot" : "Create Weight Snap Shot";
                 }
                 break;
         }           

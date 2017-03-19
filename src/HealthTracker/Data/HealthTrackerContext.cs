@@ -16,6 +16,7 @@ namespace HealthTracker.Data
         DbSet<DigitalAsset> DigitalAssets { get; set; }
         DbSet<Profile> Profiles { get; set; }
         DbSet<Account> Accounts { get; set; }
+        DbSet<WeightSnapShot> WeightSnapShots { get; set; }
         Task<int> SaveChangesAsync();
     }
 
@@ -35,6 +36,7 @@ namespace HealthTracker.Data
         public DbSet<DigitalAsset> DigitalAssets { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<WeightSnapShot> WeightSnapShots { get; set; }
 
         public override int SaveChanges()
         {

@@ -2,6 +2,7 @@ using MediatR;
 using HealthTracker.Data;
 using HealthTracker.Features.Core;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace HealthTracker.Features.Profiles
 {
@@ -9,7 +10,7 @@ namespace HealthTracker.Features.Profiles
     {
         public class GetMyProfileRequest : IRequest<GetMyProfileResponse> {
             public int? TenantId { get; set; }
-            public int? ProfileId { get; set; }
+            public int? ProfileId { get; set; } = 1;
         }
 
         public class GetMyProfileResponse
@@ -27,7 +28,13 @@ namespace HealthTracker.Features.Profiles
 
             public async Task<GetMyProfileResponse> Handle(GetMyProfileRequest request)
             {
-                throw new System.NotImplementedException();
+                var profile = await _context.Profiles.Include(x => x.WeightSnapShots)
+                    .FirstAsync();
+
+                return new GetMyProfileResponse()
+                {
+                    Profile = ProfileApiModel.FromProfile(profile)
+                };
             }
 
             private readonly HealthTrackerContext _context;

@@ -11,6 +11,9 @@ namespace HealthTracker.Data.Model
         
 		[ForeignKey("Tenant")]
         public int? TenantId { get; set; }
+
+        [ForeignKey("Profile")]
+        public int? ProfileId { get; set; }
      
 		public float Pounds { get; set; }
 
@@ -27,5 +30,7 @@ namespace HealthTracker.Data.Model
 		public bool IsDeleted { get; set; }
 
         public virtual Tenant Tenant { get; set; }
+
+        public virtual Profile Profile { get; set; }
     }
 }

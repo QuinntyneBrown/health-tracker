@@ -80,8 +80,12 @@ export class WeightSnapShotMasterDetailEmbedComponent extends HTMLElement {
 
     attributeChangedCallback (name, oldValue, newValue) {
         switch (name) {
-            case "weight-snap-shot":
+            case "weight-snap-shots":
                 this.weightSnapShots = JSON.parse(newValue);
+
+                if (this.parentNode)
+                    this.connectedCallback();
+
                 break;
         }
     }

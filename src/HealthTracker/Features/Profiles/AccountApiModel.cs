@@ -14,7 +14,7 @@ namespace HealthTracker.Features.Profiles
             var model = new TModel();
             model.Id = account.Id;
             model.TenantId = account.TenantId;
-            model.Name = account.Name;
+            model.Name = account.Firstname;
             return model;
         }
 

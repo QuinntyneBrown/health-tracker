@@ -266,6 +266,8 @@
     <Compile Include="Features\Profiles\AccountController.cs" />
     <Compile Include="Features\Profiles\GetMyProfileQuery.cs" />
     <Compile Include="Features\Biometrics\WeightSnapShotApiModel.cs" />
+    <Compile Include="Data\Migrations\ProfileConfiguration.cs" />
+    <Compile Include="Data\Migrations\AccountConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

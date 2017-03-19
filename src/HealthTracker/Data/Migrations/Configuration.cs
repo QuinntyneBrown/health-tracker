@@ -2,6 +2,7 @@ namespace HealthTracker.Migrations
 {
     using Data;
     using Data.Helpers;
+    using Data.Migrations;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<HealthTrackerContext>
@@ -16,6 +17,8 @@ namespace HealthTracker.Migrations
             TenantConfiguration.Seed(context);
             RoleConfiguration.Seed(context);
             UserConfiguration.Seed(context);
+            AccountConfiguration.Seed(context);
+            ProfileConfiguration.Seed(context);
         }
     }
 

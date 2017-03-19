@@ -5,7 +5,7 @@ const template = require("./my-profile.component.html");
 const styles = require("./my-profile.component.scss");
 
 export class MyProfileComponent extends HTMLElement {
-    constructor(private _profileService: ProfileService) {
+    constructor(private _profileService: ProfileService = ProfileService.Instance) {
         super();
         this.onSave = this.onSave.bind(this);
     }
@@ -23,7 +23,7 @@ export class MyProfileComponent extends HTMLElement {
     }
 
     private async _bind() {
-        this.myProfile = await this._profileService.getMyProfile();
+        this.myProfile = await this._profileService.getMyProfile();        
         this.masterDetailElement.setAttribute("weight-snap-shots", JSON.stringify(this.myProfile.weightSnapShots));
     }
 

@@ -32,7 +32,7 @@ namespace HealthTracker.Features.Profiles
                 var entity = await _context.Accounts
                     .SingleOrDefaultAsync(x => x.Id == request.Account.Id && x.TenantId == request.TenantId);
                 if (entity == null) _context.Accounts.Add(entity = new Account());
-                entity.Name = request.Account.Name;
+                entity.Firstname = request.Account.Name;
                 entity.TenantId = request.TenantId;
 
                 await _context.SaveChangesAsync();
