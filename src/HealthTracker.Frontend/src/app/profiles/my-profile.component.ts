@@ -22,7 +22,7 @@ export class MyProfileComponent extends HTMLElement {
     }
 
     private async _bind() {
-        this.myProfile = await this._profileService.getMyProfile();
+        //this.myProfile = await this._profileService.getMyProfile();
 
     }
 

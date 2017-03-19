@@ -9,8 +9,7 @@ export class WeightSnapShotListEmbedComponent extends HTMLElement {
     ) {
         super();
     }
-
-
+    
     static get observedAttributes() {
         return [
             "weight-snap-shots"

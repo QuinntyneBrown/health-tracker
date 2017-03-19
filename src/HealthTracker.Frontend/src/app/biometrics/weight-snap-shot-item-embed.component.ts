@@ -29,7 +29,7 @@ export class WeightSnapShotItemEmbedComponent extends HTMLElement {
     }
 
     private _bind() {
-        this._poundsElement.textContent = this.entity.pounds;
+        this._poundsElement.textContent = `${this.entity.weighedOn} ${this.entity.pounds}`;
     }
 
     private _setEventListeners() {

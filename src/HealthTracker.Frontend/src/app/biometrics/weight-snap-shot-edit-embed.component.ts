@@ -48,7 +48,8 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
     public onSave() {
         const weightSnapShot = {
             id: this.weightSnapShot != null ? this.weightSnapShot.id : null,
-            pounds: this._poundsInputElement.value
+            pounds: this._poundsInputElement.value,
+            weighedOn: this._weighedOnsInputElement.value
         } as WeightSnapShot;
         
         this.dispatchEvent(new WeightSnapShotAdd(weightSnapShot));            
@@ -57,7 +58,8 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
     public onDelete() {        
         const weightSnapShot = {
             id: this.weightSnapShot != null ? this.weightSnapShot.id : null,
-            pounds: this._poundsInputElement.value
+            pounds: this._poundsInputElement.value,
+            weighedOn: this._weighedOnsInputElement.value
         } as WeightSnapShot;
 
         this.dispatchEvent(new WeightSnapShotDelete(weightSnapShot));         
@@ -86,7 +88,9 @@ export class WeightSnapShotEditEmbedComponent extends HTMLElement {
     private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _poundsInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-name") as HTMLInputElement;}
+
+    private get _poundsInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-pounds") as HTMLInputElement; }
+    private get _weighedOnsInputElement(): HTMLInputElement { return this.querySelector(".weight-snap-shot-weighed-on") as HTMLInputElement; }
 }
 
 customElements.define(`ce-weight-snap-shot-edit-embed`,WeightSnapShotEditEmbedComponent);

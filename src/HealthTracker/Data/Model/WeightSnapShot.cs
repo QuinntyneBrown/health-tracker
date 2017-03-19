@@ -1,5 +1,5 @@
-using System;
 using HealthTracker.Data.Helpers;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HealthTracker.Data.Model

@@ -27,7 +27,7 @@ export class HeaderComponent extends HTMLElement {
     private _addEventListeners() {
         this._titleElement.addEventListener("click", this._onTitleClick.bind(this));
         this._router.addEventListener(this._onRouteChange.bind(this));
-        this._logoutElement.addEventListener("click", this._onLogoutClick.bind(this));
+        //this._logoutElement.addEventListener("click", this._onLogoutClick.bind(this));
     }
 
     private _onRouteChange(options: any) {
